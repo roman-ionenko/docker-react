@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run -e CI=true bgahavan/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "daka"
+  env: "Daka-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-349214397958"
+  bucket_path: "daka"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
