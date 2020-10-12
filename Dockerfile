@@ -11,4 +11,5 @@ RUN ["npm", "run", "build"]
 #all results of prev FROM block will be treminated
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
